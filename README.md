@@ -14,7 +14,7 @@ To run :
 -----------
 ```
 npm start
-
+```
 
 To run tests:
 --------------
