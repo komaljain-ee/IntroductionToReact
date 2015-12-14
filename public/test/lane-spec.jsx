@@ -7,6 +7,8 @@ import TestUtils from 'react-addons-test-utils';
 
 const Lane = require('../js/lane.jsx');
 const Card = require('../js/card.jsx');
+const TextField = require('material-ui/lib/text-field');
+const RaisedButton = require('material-ui/lib/raised-button');
 
 describe('Lane', () => {
 	
@@ -42,11 +44,11 @@ describe('Lane', () => {
 			
 			expect(cardsComponents.length).toBe(0);
 			
-			let newCardContent = TestUtils.findRenderedDOMComponentWithTag(lane, "input");
+			let newCardContent = TestUtils.findRenderedComponentWithType(lane, TextField);
 			
 			newCardContent.value = 'New Card';
 			
-			let createCard = TestUtils.findRenderedDOMComponentWithTag(lane, "button");
+			let createCard = TestUtils.findRenderedComponentWithType(lane, RaisedButton);
 			TestUtils.Simulate.click(createCard);
 			
 			cardsComponents = TestUtils.scryRenderedComponentsWithType(lane, Card)

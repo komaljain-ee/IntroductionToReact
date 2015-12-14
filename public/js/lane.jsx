@@ -2,6 +2,8 @@
 
 import React from 'react'
 import Card from './card.jsx'
+import TextField from 'material-ui/lib/text-field';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 var Lane = React.createClass( {
 	
@@ -18,6 +20,7 @@ var Lane = React.createClass( {
 		let cards = this.state.cards;
 		cards.push(card);
 		this.setState({cards: cards});
+		this.refs.newCardContent.value = "";
 	},
 	
 	render(){
@@ -29,8 +32,8 @@ var Lane = React.createClass( {
 		return (<div>
 			<div className="title">{this.props.title}</div>
 			<div>
-				<input type="text" ref="newCardContent"></input>
-				<button onClick={this.addNewCard}>Add Card</button>
+				<TextField key={this.props.key} hintText="Your feedback" ref="newCardContent"/>
+				<RaisedButton key={this.props.key} label="+" primary={true} onTouchTap={this.addNewCard}/>
 			</div>
 			
 			{getCards()}

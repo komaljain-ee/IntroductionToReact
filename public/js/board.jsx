@@ -28,18 +28,21 @@ var Board = React.createClass({
 	render(){
 		var getLanes = () => {
 		return this.state.lanes.map((lane) => {
-				return (<Lane key={lane.title} title={lane.title}></Lane>);
+				return (<div className="lanes" >
+					  		<Lane key={lane.title} title={lane.title}></Lane>
+						</div>);
 			});
 		}
 		
 		return (
 			<div>
+
 			{getLanes()}
 			<div>
 				<button className="add-lane-btn" onClick={this.addLane}>Add New Lane</button>
 			</div>
 		</div>)
-	}
+	 }
 })
 
 module.exports = Board;
