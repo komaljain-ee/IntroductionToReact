@@ -36,12 +36,11 @@ var Board = React.createClass({
 		
 		return (
 			<div>
-
-			{getLanes()}
-			<div>
-				<button className="add-lane-btn" onClick={this.addLane}>Add New Lane</button>
-			</div>
-		</div>)
+				{getLanes()}
+				<div>
+					<button className="add-lane-btn" onClick={this.addLane}>Add New Lane</button>
+				</div>
+			</div>)
 	 }
 })
 

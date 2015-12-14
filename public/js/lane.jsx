@@ -3,7 +3,7 @@
 import React from 'react'
 import Card from './card.jsx'
 import TextField from 'material-ui/lib/text-field';
-import RaisedButton from 'material-ui/lib/raised-button';
+import FloatingActionButton from 'material-ui/lib/floating-action-button';
 
 var Lane = React.createClass( {
 	
@@ -48,7 +48,9 @@ var Lane = React.createClass( {
 			<div className="title">{this.props.title}</div>
 			<div>
 				<TextField hintText="Feedback" ref="newCardContent"/>
-				<RaisedButton onTouchTap={this.addNewCard} label="+" primary={true} />
+				<FloatingActionButton onTouchTap={this.addNewCard} label="+" primary={true} mini={true}>
+					<span className="add-button">+</span>
+				</FloatingActionButton>
 			</div>
 			
 			{getCards()}
