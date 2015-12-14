@@ -12,6 +12,11 @@ npm install
 
 To run :
 -----------
+
+```
+webpack -w
+```
+
 ```
 npm start
 ```
