@@ -10,3 +10,14 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.card {
+	width: 150px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.number-of-likes{
+	float: left;
+	width: 30px;
+}

@@ -35,12 +35,14 @@ var Lane = React.createClass( {
 		
 		var getCards = ()=>{
 			return this.state.cards.map((card, index)=>{
-				return (<Card key={index} content={card.content} index={index} likes={card.likes}
+				return (<div className="card" key={index}>
+					     <Card content={card.content} index={index} likes={card.likes}
 							onLike={
 								() => {
 								this.onLike(index)
 								}
-							}/>);
+							}/>
+						</div>);
 			});
 		}
 		
@@ -48,7 +50,7 @@ var Lane = React.createClass( {
 			<div className="title">{this.props.title}</div>
 			<div>
 				<TextField hintText="Feedback" ref="newCardContent"/>
-				<FloatingActionButton onTouchTap={this.addNewCard} label="+" primary={true} mini={true}>
+				<FloatingActionButton onTouchTap={this.addNewCard} primary={true} mini={true}>
 					<span className="add-button">+</span>
 				</FloatingActionButton>
 			</div>
