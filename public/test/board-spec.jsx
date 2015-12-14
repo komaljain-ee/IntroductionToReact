@@ -18,6 +18,18 @@ describe('Board', () => {
 			expect(board.state.lanes.length).toBe(3);
 	})
 	
+	it('should add new lane', () => {
+		
+			let board = TestUtils.renderIntoDocument(
+				<Board/>
+			);
+			let addLaneBtn = TestUtils.findRenderedDOMComponentWithClass(board, 'add-lane-btn');
+			
+			TestUtils.Simulate.click(addLaneBtn);
+			
+			expect(board.state.lanes.length).toBe(4);
+	})
+	
 	it('should set lane titles', () => {
 		
 			let board = TestUtils.renderIntoDocument(

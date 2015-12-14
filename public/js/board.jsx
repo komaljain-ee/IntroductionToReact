@@ -16,6 +16,15 @@ var Board = React.createClass({
 		};
 	},
 	
+	addLane(){
+		let lane = {
+			title: 'New Lane'
+		}	
+		let lanes = this.state.lanes;
+		lanes.push(lane);
+		this.setState({lanes: lanes});
+	},
+	
 	render(){
 		var getLanes = () => {
 		return this.state.lanes.map((lane) => {
@@ -26,6 +35,9 @@ var Board = React.createClass({
 		return (
 			<div>
 			{getLanes()}
+			<div>
+				<button className="add-lane-btn" onClick={this.addLane}>Add New Lane</button>
+			</div>
 		</div>)
 	}
 })
