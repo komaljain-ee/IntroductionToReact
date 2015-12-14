@@ -29,11 +29,12 @@ var Lane = React.createClass( {
 				return (<Card key={card.content} content={card.content}/>);
 			});
 		}
+		
 		return (<div>
 			<div className="title">{this.props.title}</div>
 			<div>
-				<TextField key={this.props.key} hintText="Your feedback" ref="newCardContent"/>
-				<RaisedButton key={this.props.key} label="+" primary={true} onTouchTap={this.addNewCard}/>
+				<input type="text" ref="newCardContent"></input>
+				<button onClick={this.addNewCard}>Add Card</button>
 			</div>
 			
 			{getCards()}

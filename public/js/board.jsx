@@ -11,7 +11,7 @@ var Board = React.createClass({
 			lanes : [
 				{ title: 'What went well?'},
 				{ title: 'What did not go well?'},
-				{ title: 'Action items'}
+				{ title: 'Action Items'}
 				]
 		};
 	},
@@ -27,9 +27,9 @@ var Board = React.createClass({
 	
 	render(){
 		var getLanes = () => {
-		return this.state.lanes.map((lane) => {
-				return (<div className="lanes" >
-					  		<Lane key={lane.title} title={lane.title}></Lane>
+		return this.state.lanes.map((lane, index) => {
+				return (<div className="lanes">
+					  		<Lane key={index}  index={index} title={lane.title}></Lane>
 						</div>);
 			});
 		}
