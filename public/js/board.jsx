@@ -28,8 +28,8 @@ var Board = React.createClass({
 	render(){
 		var getLanes = () => {
 		return this.state.lanes.map((lane, index) => {
-				return (<div className="lanes">
-					  		<Lane key={index}  index={index} title={lane.title}></Lane>
+				return (<div key={index}  className="lanes">
+					  		<Lane index={index} title={lane.title}></Lane>
 						</div>);
 			});
 		}

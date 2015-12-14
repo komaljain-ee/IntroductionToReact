@@ -15,26 +15,40 @@ var Lane = React.createClass( {
 	
 	addNewCard(){
 		let card = {
-			content : this.refs.newCardContent.value
+			content : this.refs.newCardContent.getValue(),
+			likes: 0
 		}
 		let cards = this.state.cards;
 		cards.push(card);
 		this.setState({cards: cards});
-		this.refs.newCardContent.value = "";
+		this.refs.newCardContent.setValue("");
+	},
+	
+	onLike(index) {
+		console.log(index);
+		var cards = this.state.cards;
+		cards[index].likes = cards[index].likes + 1;
+		this.setState({cards: cards});
 	},
 	
 	render(){
+		
 		var getCards = ()=>{
-			return this.state.cards.map((card)=>{
-				return (<Card key={card.content} content={card.content}/>);
+			return this.state.cards.map((card, index)=>{
+				return (<Card key={index} content={card.content} index={index} likes={card.likes}
+							onLike={
+								() => {
+								this.onLike(index)
+								}
+							}/>);
 			});
 		}
 		
 		return (<div>
 			<div className="title">{this.props.title}</div>
 			<div>
-				<input type="text" ref="newCardContent"></input>
-				<button onClick={this.addNewCard}>Add Card</button>
+				<TextField hintText="Feedback" ref="newCardContent"/>
+				<RaisedButton onTouchTap={this.addNewCard} label="+" primary={true} />
 			</div>
 			
 			{getCards()}

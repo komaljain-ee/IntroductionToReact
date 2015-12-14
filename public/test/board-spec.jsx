@@ -39,7 +39,7 @@ describe('Board', () => {
 			 
 			expect(lanes[0].props.title).toBe('What went well?');
 			expect(lanes[1].props.title).toBe('What did not go well?');
-			expect(lanes[2].props.title).toBe('Action items');
+			expect(lanes[2].props.title).toBe('Action Items');
 	})
 	
 	
