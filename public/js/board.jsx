@@ -1,8 +1,8 @@
 'use strict'
 
 import React from 'react';
-
 import Lane from './lane.jsx';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 var Board = React.createClass({
 	
@@ -38,7 +38,7 @@ var Board = React.createClass({
 			<div>
 				{getLanes()}
 				<div>
-					<button className="add-lane-btn" onClick={this.addLane}>Add New Lane</button>
+					<RaisedButton label="Add New Lane" onTouchTap={this.addLane} primary={true}/>
 				</div>
 			</div>)
 	 }

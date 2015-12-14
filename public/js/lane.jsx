@@ -25,9 +25,14 @@ var Lane = React.createClass( {
 	},
 	
 	onLike(index) {
-		console.log(index);
 		var cards = this.state.cards;
 		cards[index].likes = cards[index].likes + 1;
+		this.setState({cards: cards});
+	},
+	
+	removeCard(index) {
+		var cards = this.state.cards;
+		cards.splice(index,1);
 		this.setState({cards: cards});
 	},
 	
@@ -40,8 +45,12 @@ var Lane = React.createClass( {
 							onLike={
 								() => {
 								this.onLike(index)
-								}
-							}/>
+								}}
+								removeCard={
+									() => {
+									this.removeCard(index)
+								}}
+								/>
 						</div>);
 			});
 		}
