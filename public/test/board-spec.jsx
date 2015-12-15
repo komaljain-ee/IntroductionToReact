@@ -1,21 +1,30 @@
 jest.dontMock('../js/board.jsx');
 jest.dontMock('../js/lane.jsx');
+jest.dontMock('material-ui/lib/raised-button');
+jest.dontMock('react-tap-event-plugin');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
+const injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
+
 const Lane = require('../js/lane.jsx');
+const boardService = require('../js/board-service.jsx');
+const RaisedButton = require('material-ui/lib/raised-button');
 const Board = require('../js/board.jsx');
+
 
 describe('Board', () => {
 	
-	it('should show 3 lanes by default', () => {
+	it('should fetch lanes from BoardService', () => {
+		boardService.lanes = [{title: 'Test Lane', cards:[], id: 0}];
 		
 			let board = TestUtils.renderIntoDocument(
 				<Board/>
 			);
-			expect(board.state.lanes.length).toBe(3);
+			expect(board.state.lanes).toBe(boardService.lanes);
 	})
 	
 	it('should add new lane', () => {
@@ -24,22 +33,20 @@ describe('Board', () => {
 				<Board/>
 			);
 			let addLaneBtn = TestUtils.findRenderedDOMComponentWithClass(board, 'add-lane-btn');
-			
 			TestUtils.Simulate.click(addLaneBtn);
 			
-			expect(board.state.lanes.length).toBe(4);
+			expect(boardService.addLane).toBeCalled();
 	})
 	
 	it('should set lane titles', () => {
-		
+			boardService.lanes = [{title: 'Test Lane', cards:[], id: 0}]
 			let board = TestUtils.renderIntoDocument(
 				<Board/>
 			);
 			let lanes = TestUtils.scryRenderedComponentsWithType(board, Lane);
 			 
-			expect(lanes[0].props.title).toBe('What went well?');
-			expect(lanes[1].props.title).toBe('What did not go well?');
-			expect(lanes[2].props.title).toBe('Action Items');
+			expect(lanes[0].props.title).toBe('Test Lane');
+		
 	})
 	
 	

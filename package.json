@@ -25,13 +25,15 @@
       "<rootDir>/node_modules/react",
       "<rootDir>/node_modules/react-dom",
       "<rootDir>/node_modules/react-addons-test-utils",
-      "<rootDir>/node_modules/fbjs"
+      "<rootDir>/node_modules/fbjs",
+      "<rootDir>/node_modules/material-ui"
     ]
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "http-server": "^0.8.5",
+    "lodash": "^3.10.1",
     "material-ui": "^0.13.4",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"

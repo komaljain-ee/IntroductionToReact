@@ -8,7 +8,7 @@ import IconButton from 'material-ui/lib/icon-button';
 var Card = React.createClass( {
 		
 	render(){
-		return (<Paper zDepth={3}>
+		return (<Paper zDepth={3} className="card">
 				   <div>{this.props.content}</div>
 				   <FloatingActionButton mini={true} onTouchTap={this.props.removeCard} secondary={true}>
 				   		<span>X</span>

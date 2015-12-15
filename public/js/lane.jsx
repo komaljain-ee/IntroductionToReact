@@ -2,65 +2,58 @@
 
 import React from 'react'
 import Card from './card.jsx'
-import TextField from 'material-ui/lib/text-field';
-import FloatingActionButton from 'material-ui/lib/floating-action-button';
+import TextField from 'material-ui/lib/text-field'
+import FloatingActionButton from 'material-ui/lib/floating-action-button'
+
+var boardService = require('./board-service.jsx')
 
 var Lane = React.createClass( {
-	
-	getInitialState(){
-		return {
-			cards : []
-		}
-	},
-	
 	addNewCard(){
 		let card = {
 			content : this.refs.newCardContent.getValue(),
 			likes: 0
 		}
-		let cards = this.state.cards;
-		cards.push(card);
-		this.setState({cards: cards});
+		boardService.addCard(card,this.props.id);
 		this.refs.newCardContent.setValue("");
+		this.props.onLaneUpdated();
 	},
 	
-	onLike(index) {
-		var cards = this.state.cards;
-		cards[index].likes = cards[index].likes + 1;
-		this.setState({cards: cards});
+	onLike(card) {
+		card.likes = card.likes + 1;
+		boardService.updateCard(card, this.props.id);
+		this.props.onLaneUpdated();
 	},
 	
-	removeCard(index) {
-		var cards = this.state.cards;
-		cards.splice(index,1);
-		this.setState({cards: cards});
+	removeCard(card) {
+		boardService.removeCard(card, this.props.id);
+		this.props.onLaneUpdated();
 	},
 	
 	render(){
 		
 		var getCards = ()=>{
-			return this.state.cards.map((card, index)=>{
-				return (<div className="card" key={index}>
-					     <Card content={card.content} index={index} likes={card.likes}
+			return this.props.cards.map((card, index) => {
+				return (
+					     <Card key={card.id} content={card.content} likes={card.likes}
 							onLike={
 								() => {
-								this.onLike(index)
+								this.onLike(card)
 								}}
 								removeCard={
 									() => {
-									this.removeCard(index)
+									this.removeCard(card)
 								}}
 								/>
-						</div>);
+						);
 			});
 		}
 		
-		return (<div>
+		return (<div className="lane">
 			<div className="title">{this.props.title}</div>
 			<div>
 				<TextField hintText="Feedback" ref="newCardContent"/>
-				<FloatingActionButton onTouchTap={this.addNewCard} primary={true} mini={true}>
-					<span className="add-button">+</span>
+				<FloatingActionButton className="add-btn" onTouchTap={this.addNewCard} primary={true} mini={true}>
+					<span>+</span>
 				</FloatingActionButton>
 			</div>
 			

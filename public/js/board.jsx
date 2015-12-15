@@ -4,32 +4,35 @@ import React from 'react';
 import Lane from './lane.jsx';
 import RaisedButton from 'material-ui/lib/raised-button';
 
+var boardService  = require('./board-service.jsx');
+
 var Board = React.createClass({
 	
 	getInitialState(){
 		return {
-			lanes : [
-				{ title: 'What went well?'},
-				{ title: 'What did not go well?'},
-				{ title: 'Action Items'}
-				]
+			lanes : []
 		};
 	},
 	
-	addLane(){
-		let lane = {
-			title: 'New Lane'
-		}	
-		let lanes = this.state.lanes;
-		lanes.push(lane);
-		this.setState({lanes: lanes});
+	componentDidMount(){
+		this.updateLanes();
 	},
 	
+	updateLanes(){
+		this.setState({lanes: boardService.lanes});
+	},
+	
+	addLane(){
+		console.log('was called');
+		boardService.addLane({title: 'New Lane'});
+		this.updateLanes();
+	},
+
 	render(){
 		var getLanes = () => {
 		return this.state.lanes.map((lane, index) => {
-				return (<div key={index}  className="lanes">
-					  		<Lane index={index} title={lane.title}></Lane>
+				return (<div key={lane.id}  className="lanes">
+					  		<Lane title={lane.title} id={lane.id} cards={lane.cards} onLaneUpdated={this.updateLanes}></Lane>
 						</div>);
 			});
 		}
@@ -38,7 +41,7 @@ var Board = React.createClass({
 			<div>
 				{getLanes()}
 				<div>
-					<RaisedButton label="Add New Lane" onTouchTap={this.addLane} primary={true}/>
+					<RaisedButton className="add-lane-btn" label="Add New Lane" onTouchTap={this.addLane} primary={true}/>
 				</div>
 			</div>)
 	 }
