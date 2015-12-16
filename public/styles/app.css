@@ -25,3 +25,7 @@ body{
 	float: left;
 	width: 30px;
 }
+
+.trash-icon {
+	float: right;
+}

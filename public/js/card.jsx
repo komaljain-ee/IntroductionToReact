@@ -2,21 +2,17 @@
 
 import React from 'react'
 import Paper from 'material-ui/lib/paper';
-import FloatingActionButton from 'material-ui/lib/floating-action-button';
-import IconButton from 'material-ui/lib/icon-button';
+import FontIcon from 'material-ui/lib/font-icon';
 
 var Card = React.createClass( {
 		
 	render(){
 		return (<Paper zDepth={3} className="card">
 				   <div>{this.props.content}</div>
-				   <FloatingActionButton mini={true} onTouchTap={this.props.removeCard} secondary={true}>
-				   		<span>X</span>
-				   </FloatingActionButton>
+				   <FontIcon className="material-icons trash-icon" onTouchTap={this.props.removeCard}>delete</FontIcon>
 				   <div className="number-of-likes">+ {this.props.likes}</div>
-				   <FloatingActionButton onTouchTap={this.props.onLike} primary={true} mini={true}>
-				   </FloatingActionButton>
-				   
+		     	   <FontIcon className="material-icons" onTouchTap={this.props.onLike}>thumb_up</FontIcon>
+			
 				</Paper>)
 	}
 });
