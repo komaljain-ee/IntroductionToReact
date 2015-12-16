@@ -1,5 +1,5 @@
-jest.dontMock('../public/js/card.jsx');
-jest.dontMock('../public/js/lane.jsx');
+jest.dontMock('../public/js/retrowize/card.jsx');
+jest.dontMock('../public/js/retrowize/lane.jsx');
 jest.dontMock('material-ui/lib/raised-button');
 jest.dontMock('react-tap-event-plugin');
 
@@ -10,13 +10,13 @@ import TestUtils from 'react-addons-test-utils';
 const injectTapEventPlugin = require('react-tap-event-plugin');
 injectTapEventPlugin();
 
-const Card = require('../public/js/card.jsx');
+const Card = require('../public/js/retrowize/card.jsx');
 const TextField = require('material-ui/lib/text-field');
 const RaisedButton = require('material-ui/lib/raised-button');
 
-var boardService = require('../public/js/board-service');
+var boardService = require('../public/js/retrowize/board-service');
 
-const Lane = require('../public/js/lane.jsx');
+const Lane = require('../public/js/retrowize/lane.jsx');
 
 describe('Lane', () => {
 
