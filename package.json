@@ -10,7 +10,8 @@
   "jest": {
     "testDirectoryName": "test",
     "testPathDirs": [
-      "./public"
+      "./test",
+      "./public/js"
     ],
     "testFileExtensions": [
       "jsx",

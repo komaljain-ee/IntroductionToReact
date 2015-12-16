@@ -7,23 +7,22 @@ import RaisedButton from 'material-ui/lib/raised-button';
 var boardService  = require('./board-service.jsx');
 
 var Board = React.createClass({
-	
+
 	getInitialState(){
 		return {
 			lanes : []
 		};
 	},
-	
+
 	componentDidMount(){
 		this.updateLanes();
 	},
-	
+
 	updateLanes(){
 		this.setState({lanes: boardService.lanes});
 	},
-	
+
 	addLane(){
-		console.log('was called');
 		boardService.addLane({title: 'New Lane'});
 		this.updateLanes();
 	},
@@ -36,7 +35,7 @@ var Board = React.createClass({
 						</div>);
 			});
 		}
-		
+
 		return (
 			<div>
 				{getLanes()}

@@ -14,23 +14,23 @@ var Lane = React.createClass( {
 			likes: 0
 		}
 		boardService.addCard(card,this.props.id);
-		this.refs.newCardContent.setValue("");
+		this.refs.newCardContent.setValue('');
 		this.props.onLaneUpdated();
 	},
-	
+
 	onLike(card) {
 		card.likes = card.likes + 1;
 		boardService.updateCard(card, this.props.id);
 		this.props.onLaneUpdated();
 	},
-	
+
 	removeCard(card) {
 		boardService.removeCard(card, this.props.id);
 		this.props.onLaneUpdated();
 	},
-	
+
 	render(){
-		
+
 		var getCards = ()=>{
 			return this.props.cards.map((card, index) => {
 				return (
@@ -47,7 +47,7 @@ var Lane = React.createClass( {
 						);
 			});
 		}
-		
+
 		return (<div className="lane">
 			<div className="title">{this.props.title}</div>
 			<div>
@@ -56,7 +56,7 @@ var Lane = React.createClass( {
 					<span>+</span>
 				</FloatingActionButton>
 			</div>
-			
+
 			{getCards()}
 		</div>);
 	}
