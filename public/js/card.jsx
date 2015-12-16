@@ -8,10 +8,10 @@ var Card = React.createClass( {
 		
 	render(){
 		return (<Paper zDepth={3} className="card">
-				   <div>{this.props.content}</div>
+				   <div className="card-content">{this.props.content}</div>
 				   <FontIcon className="material-icons trash-icon" onTouchTap={this.props.removeCard}>delete</FontIcon>
 				   <div className="number-of-likes">+ {this.props.likes}</div>
-		     	   <FontIcon className="material-icons" onTouchTap={this.props.onLike}>thumb_up</FontIcon>
+		     	   <FontIcon className="material-icons like-btn" onTouchTap={this.props.onLike}>thumb_up</FontIcon>
 			
 				</Paper>)
 	}
