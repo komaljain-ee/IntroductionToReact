@@ -1,5 +1,11 @@
 body{
 	font-family: sans-serif;
+	color: #423D3D;
+}
+
+a{
+	text-decoration: none;
+	color: #423D3D;
 }
 
 .container{

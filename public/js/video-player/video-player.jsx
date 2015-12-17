@@ -21,15 +21,25 @@ var VideoPlayer = React.createClass({
   },
 
   render() {
+    var controlStyle =  {
+      position: "relative",
+      display: "inline-block",
+      top: "-50px",
+      left: "80px",
+      zIndex: "5"
+    };
+
     return (
       <div>
-        <video ref="video" width="640" height="420">
-          <source src={this.props.source} type="video/mp4"/>
-        </video>
-        <div className="controls">
+
+        <div className="controls" style={controlStyle}>
         { this.state.isPlaying? <FloatingActionButton><FontIcon className="material-icons" onTouchTap={this.pause}>pause</FontIcon></FloatingActionButton> :
         <FloatingActionButton><FontIcon className="material-icons" onTouchTap={this.play}>play_arrow</FontIcon></FloatingActionButton> }
         </div>
+
+        <video ref="video" width="640" height="420">
+          <source src={this.props.source} type="video/mp4"/>
+        </video>
       </div>
     );
   }
