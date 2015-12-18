@@ -3,31 +3,45 @@ import React from 'react';
 var TestPopup  = React.createClass({
     getInitialState: function() {
         return {
-            status: "",
-            showPopup: false
-        }
+            showPopup: false,
+            items: [
+              "item 1",
+              "item 2",
+              "item 3",
+              "item 4",
+              "item 5"
+            ]
+        };
     },
-   
-   onYes: function() {
-      this.setState({status: "Yes", showPopup: false});
+
+   deleteItem: function() {
+     var items = this.state.items;
+     items.splice(this.state.currentItemIndex,1);
+
+      this.setState({items: items, showPopup: false});
    },
-   
+
    onNo: function() {
-       this.setState({status: "No", showPopup: false})
+       this.setState({showPopup: false})
    },
-   
-   displayPopup: function() {
-       this.setState({showPopup: true})
+
+   displayPopup: function(index) {
+       this.setState({currentItemIndex: index, showPopup: true})
    },
-   
+
    render: function() {
    		return (
                <div>
-                  <div className="full-content">
-                    <h3>Deleted:  {this.state.status}</h3>
-                    <button onClick={this.displayPopup}>Delete</button>
-                  </div>
-		          <Popup  display={this.state.showPopup} onYes={this.onYes} onNo={this.onNo}/>
+                 <div className="full-content">
+                 { this.state.items.map((item, index) => {
+                    return <div className="item">
+                      <button onClick={()=>{ this.displayPopup(index)} }>Delete</button>
+                      <span>{item}</span>
+                    </div>
+                  })
+                }
+              </div>
+		          <Popup display={this.state.showPopup} onYes={this.deleteItem} onNo={this.onNo}/>
                 </div>
 		   );
    }
@@ -37,12 +51,14 @@ var Popup = React.createClass({
     render: function(){
         return (
                 <div className="popup" style={{display: this.props.display? "block": "none"}}>
-                    <div className="popup-content">
-                        <div>Are you sure?</div>
-                        <button type="button" onClick={this.props.onYes}>Yes</button>
-                        <button type="button" onClick={this.props.onNo}>No</button>
+                    <div className="popup-container">
+                        <div className="title">Are you sure?</div>
+                        <div className="content">
+                          <button className="secondary" type="button" onClick={this.props.onYes}>Yes</button>
+                          <button className="primary" type="button" onClick={this.props.onNo}>No</button>
+                        </div>
                     </div>
-                </div>    
+                </div>
             );
     }
 });

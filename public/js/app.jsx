@@ -7,6 +7,7 @@ import Counter from './counter/counter.jsx';
 import FilterList from './filterList/filter-list.jsx';
 import TestPopup from './popup/test-popup.jsx';
 import VideoPlayer from './video-player/video-player.jsx';
+import Parent from './delayed-update/parent.jsx';
 
 injectTapEventPlugin();
 
@@ -17,3 +18,4 @@ window.HelloWorld = HelloWorld;
 window.Counter = Counter;
 window.FilterList = FilterList;
 window.TestPopup = TestPopup;
+window.Parent = Parent
