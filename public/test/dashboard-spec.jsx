@@ -11,9 +11,13 @@ describe('Dashboard', () =>{
 		var dashboard = TestUtils.renderIntoDocument(
 			<Dashboard/>
 		);
+		var boardInput = TestUtils.findRenderedDOMComponentWithClass(dashboard, "board-name");
+		boardInput.value = 'My Board';
 		
-		var createBoardBtn = ReactDOM.findDOMNode(dashboard, 'button');
+		var createBoardBtn = TestUtils.findRenderedDOMComponentWithClass(dashboard, 'create-btn');
+		TestUtils.Simulate.click(createBoardBtn);
 		
-		expect(createBoardBtn.textContent).toBe('Create Board');
+		var board = TestUtils.findRenderedDOMComponentWithClass(dashboard, "board-title0");
+		expect(board.textContent).toBe('My Board');
 	})
 });
