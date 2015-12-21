@@ -29,7 +29,7 @@ var Parent = React.createClass({
     return (
       <div>
       <input type="text" ref="itemInput"/>
-      <button onClick={this.addItemFromInput}>Add item</button>
+      <button className="btn" onClick={this.addItemFromInput}>Add item</button>
         <div>
           <Child items={this.state.items}/>
         </div>

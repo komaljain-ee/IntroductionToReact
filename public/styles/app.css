@@ -25,9 +25,12 @@ li {
 	width: 200px;
 }
 
+.btn {
+	margin: 5px;
+}
+
 button{
 	padding: 5px 20px;
-  margin: 5px;
 	font-size: 14px;
 	border: none;
 	box-shadow: 1px 1px 2px 0px gray;

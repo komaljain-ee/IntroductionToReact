@@ -35,7 +35,7 @@ var TestPopup  = React.createClass({
                  <div className="full-content">
                  { this.state.items.map((item, index) => {
                     return <div key={index} className="item">
-                      <button onClick={()=>{ this.displayPopup(index)} }>Delete</button>
+                      <button className="btn" onClick={()=>{ this.displayPopup(index)} }>Delete</button>
                       <span>{item}</span>
                     </div>
                   })
@@ -60,8 +60,8 @@ var Popup = React.createClass({
                         <div className="content">
                           <div>{this.props.children}</div>
                           <div className="footer">
-                            <button className="secondary" type="button" onClick={this.props.onYes}>Yes</button>
-                            <button className="primary" type="button" onClick={this.props.onNo}>No</button>
+                            <button className="secondary btn" type="button" onClick={this.props.onYes}>Yes</button>
+                            <button className="primary btn" type="button" onClick={this.props.onNo}>No</button>
                           </div>
                         </div>
                     </div>
