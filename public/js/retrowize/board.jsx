@@ -23,7 +23,7 @@ var Board = React.createClass({
 	},
 
 	addLane(){
-		boardService.addLane({title: 'New Lane'});
+		boardService.addLane({title: 'New Lane', cards: []});
 		this.updateLanes();
 	},
 
