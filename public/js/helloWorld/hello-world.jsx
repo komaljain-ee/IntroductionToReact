@@ -3,7 +3,7 @@ import React from 'react';
 var HelloWorld = React.createClass({
   render: function() {
     return (
-      React.createElement('div', null, 'Hello World!')
+      <div className="hello-world">Hello {this.props.name} !!!</div>
     );
   }
 });
