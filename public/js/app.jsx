@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './hello-world.jsx'
-import Dashboard from './dashboard.jsx'
 import injectTapEventPlugin from "react-tap-event-plugin";
 import Board from './retrowize/board.jsx';
 import HelloWorld from './helloWorld/hello-world.jsx';
@@ -20,5 +18,6 @@ window.HelloWorld = HelloWorld;
 window.Counter = Counter;
 window.FilterList = FilterList;
 window.TestPopup = TestPopup;
-window.Parent = Parent
+window.Parent = Parent;
+window.Board = Board;
 
