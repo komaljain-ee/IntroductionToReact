@@ -1,0 +1,80 @@
+body{
+	font-family: sans-serif;
+	color: #423D3D;
+}
+
+a{
+	text-decoration: none;
+	color: #423D3D;
+}
+
+ul{
+	padding: 0px;
+}
+
+input {
+	padding: 5px;
+	font-size: 14px;
+	width: 200px;
+}
+
+li {
+	list-style: none;
+	padding: 10px;
+	border-bottom: solid 1px lightgray;
+	width: 200px;
+}
+
+button{
+	padding: 5px 20px;
+  margin: 5px;
+	font-size: 14px;
+	border: none;
+	box-shadow: 1px 1px 2px 0px gray;
+}
+
+.container{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.primary {
+	background-color: salmon;
+}
+
+.secondary {
+	background-color: skyblue;
+}
+
+.ternary {
+	background-color: gray;
+}
+
+.lanes {
+	width: 300px;
+	margin-right: 2%;
+	height: 100%;
+	float: left;
+}
+
+.title {
+	font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card {
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.number-of-likes{
+	float: left;
+	width: 30px;
+}
+
+.trash-icon {
+	float: right;
+}
